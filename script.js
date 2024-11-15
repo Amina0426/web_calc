@@ -2,12 +2,13 @@ let buttons=document.querySelectorAll(".button");
 let barBtn=document.querySelectorAll(".bar_btn");
 let numBtn=document.querySelectorAll(".num");
 let screen=document.querySelector(".display");
-let opBtn=document.querySelectorAll(".spl");
+let opBtn=document.querySelectorAll(".op");
 let equal=document.querySelector(".equal");
 let clearBtn=document.querySelector(".clear");
 let delBtn=document.querySelector(".del");
 let togglBtn=document.querySelector("#toggle");
 let trigBtn=document.querySelectorAll(".trig");
+let bracket=document.querySelector("#bracket");
 
 let curr='';
 let prev='';
@@ -26,9 +27,6 @@ const handleOperator=(op)=>{
     if(curr===''){
         return;
     }
-    if(prev!==''){
-        calculate();
-    }
     operator=op;
     prev=curr;
     curr='';
@@ -43,6 +41,18 @@ const handleTrig=(trigFunc)=>{
         curr = `${trigFunc}(${curr}`
     }
 display();
+};
+const handleNegative=()=>{
+    if(curr ===''){
+        return;
+    }
+    if(curr.includes('(')&&!curr.includes(')')){
+        curr += '-';
+    }else{
+        curr = '-' + curr;
+    }
+    display();
+
 };
 const memory=(mem)=>{
     
@@ -80,23 +90,7 @@ const calculate=()=>{
         case '%':
             result = (prevNum * currNum) / 100;  // This calculates "prevNum is X% of currNum"
             break;
-            
-        case 'sqrt':
-                if (prevNum < 0) {
-                    result = "ERROR";  // Handle negative square root
-                } else {
-                    result = Math.sqrt(prevNum);
-                }
-                break;
-        case '1/x':
-                if (prevNum === 0) {
-                    result = "ERROR";  // Handle division by zero
-                } else {
-                    result = 1 / prevNum;  // Reciprocal of prevNum
-                }
-                break;
                 
-              
         default:
             return;
     }
@@ -106,6 +100,9 @@ const calculate=()=>{
     functionName='';
     display();
 };
+
+
+
 const clear=()=>{
     curr='';
     prev='';
@@ -114,7 +111,11 @@ const clear=()=>{
 };
 const display = () => {
     if (curr !== '') {
+        if(prev!==''&& operator!==null){
+            screen.innerText=prev+' '+ operator + ' '+curr;
+        }else{
         screen.innerText = curr;
+        }
     } else if (prev !== '' && operator !== null) {
         screen.innerText = prev + ' ' + operator;
     } else if (prev !== '') {
@@ -122,8 +123,8 @@ const display = () => {
     } else {
         screen.innerText = '0';
     }
+   
 };
-
 const handleDel=()=>{
     /*The error i waas getting was bcoz i had initialised del as an operator, coz of which when i entered del
     for case 1: 856 then del, 1st 856 was assigned to prev then the digits were deleted. i mean del was deleted
@@ -148,11 +149,6 @@ const handleDel=()=>{
     }
 
     display();
-};
-const togglSign=()=>{
-    prevNum=parseFloat(prev);
-    prev = prevNum * -1;  // Toggle the sign  
-    display(); 
 };
 const trigCalc=(functionName)=>{
     let result; 
@@ -180,8 +176,36 @@ const trigCalc=(functionName)=>{
         result = Math.acos(currNum) * 180 / Math.PI;  
     } else if (functionName === 'atan') {
         result = Math.atan(currNum) * 180 / Math.PI;  
+    }else if (functionName=== 'sqrt'){
+        if (currNum < 0) {
+            result = "ERROR";  // Handle negative square root
+        } else {
+            result = Math.sqrt(currNum);
+        }
+    }else if (functionName === '1/x'){
+        if (currNum === 0) {
+            result = "ERROR";  // Handle division by zero
+        } else {
+            result = 1 / currNum;  
+        }
+    }else if (functionName === 'log'){
+        if(currNum <= 0){
+            result="ERROR";
+        } else {
+        result=Math.log10(currNum);
+        }
+    }else if (functionName === 'ln'){
+        if(currNum <= 0){
+            result="ERROR";
+        } else {
+        result=Math.log(currNum);
+        }
+    }else if(functionName === 'cbrt'){
+        result=Math.cbrt(currNum);
     }
 
+    
+       
 console.log(result);
     curr=result;
     console.log(curr);
@@ -191,6 +215,15 @@ console.log(result);
 }
  
 };
+const handleBracket=()=>{
+    if(curr==''||!curr.includes('(')){
+        curr+='(';
+    }else if(curr.includes('(')){
+        curr+=')';
+
+    }
+    display();
+}
 
 
 
@@ -246,8 +279,8 @@ delBtn.addEventListener("click",()=>{
     handleDel();
     
 });
-togglBtn.addEventListener("click",togglSign);
+togglBtn.addEventListener("click",()=>{
+    handleNegative();
+});
 
-
-
-
+bracket.addEventListener("click",handleBracket);
