@@ -115,7 +115,7 @@ const clear=()=>{
 const display = () => {
     if (curr !== '') {
         screen.innerText = curr;
-    } else if (prev !== '' && operator !== '') {
+    } else if (prev !== '' && operator !== null) {
         screen.innerText = prev + ' ' + operator;
     } else if (prev !== '') {
         screen.innerText = prev;
