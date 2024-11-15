@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #b7c9a5;
+    text-align: center;
+}
+.onhover{
+    cursor: pointer;
+    transform: scale(1,1);
+    background-color: bisque;
+    opacity: 0.7;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 94vh;
+    width: 100vw;
+}
+.header{
+    background-color: #d6a17a;
+    height: 6vmin;
+    width: 100vw;
+}
+.spl{
+    background-color: bisque;
+}
+#spl{
+    background-color: aqua;
+}
+.outline{
+    background-color: rgb(70, 68, 68);
+    height: 89vmin;
+    width: 54vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner{
+    background-color: rgb(161, 158, 158);
+    height: 96%;
+    width: 96%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+.display{
+    background-color: black;
+    color: white;
+    height: 15vmin;
+    width: 95%;
+    margin: 1vmin;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.keypad{
+    height: 49vh;
+    width: 95%;
+    /* display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: end;
+    gap: 0.1rem;
+}
+.button{
+    height: 8vmin;
+    width: 12vmin;
+    border-radius: 1vmin;
+    border-width: 1px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.bar{
+    height: 4vmin;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.bar_btn{
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 1vmin;
+    border-width: 1px;
+    width: 8vmin;
+    height: 3.5vmin;
+}
