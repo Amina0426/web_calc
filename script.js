@@ -9,18 +9,29 @@ let delBtn=document.querySelector(".del");
 let togglBtn=document.querySelector("#toggle");
 let trigBtn=document.querySelectorAll(".trig");
 let bracket=document.querySelector("#bracket");
+let factBtn=document.querySelector("#fact");
 
 let curr='';
 let prev='';
 let operator=null;
 let functionName='';
 
+
 const handleNum=(number)=>{
     if(functionName===''){
+        if(number==='e'){
+            curr = Math.E;
+        }
+        if(number==='pi'){
+            curr=Math.PI;
+        }else{
         curr+=number;
+        }
+       
     }else{
     curr+=number;
     }
+    
     display();
 };
 const handleOperator=(op)=>{
@@ -65,16 +76,24 @@ const calculate=()=>{
     if(functionName){
         result=trigCalc(functionName);
     }
-
+    
+    if(operator ==='!'){
+        result=factorial(prevNum);
+        
+    }
+  
     switch(operator){
         case '+':
             result=prevNum + currNum;
+            
             break;
         case '-':
             result=prevNum-currNum;
+            
             break;
         case '*':
             result=prevNum*currNum;
+            
             break;
         case '/':
             if (currNum === 0) {
@@ -82,18 +101,22 @@ const calculate=()=>{
             } else {
                 result = prevNum / currNum;
             }
+           
             break;
             
         case '^':
             result=Math.pow(prevNum,currNum);
+           
             break;
         case '%':
             result = (prevNum * currNum) / 100;  // This calculates "prevNum is X% of currNum"
             break;
                 
         default:
-            return;
+            break;
     }
+
+   
     curr=result;
     operator=null;
     prev='';
@@ -102,7 +125,15 @@ const calculate=()=>{
 };
 
 
-
+const factorial=(n)=>{
+    if(n===0||n===1){
+        return 1;
+    }
+    let factN_1=factorial(n - 1);
+    let factN=n*factN_1;
+    return factN;
+    display();
+};
 const clear=()=>{
     curr='';
     prev='';
@@ -257,6 +288,7 @@ screen.addEventListener("mouseover",()=>{
 numBtn.forEach((btn)=>{
     btn.addEventListener("click",()=>{
         handleNum(btn.innerText);
+        console.log(`curr is ${curr}`)
        
     });
 })
@@ -284,3 +316,5 @@ togglBtn.addEventListener("click",()=>{
 });
 
 bracket.addEventListener("click",handleBracket);
+
+
