@@ -15,10 +15,10 @@ body{
 }
 .main{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 8rem;
     height: 94vh;
     width: 100vw;
 }
@@ -33,6 +33,35 @@ body{
 #spl{
     background-color: aqua;
 }
+.history{
+    height: 60vmin;
+    width: 40vmin;
+    margin-left: 5px;
+    background-color: black;
+    color: antiquewhite;
+    font-size: 20px;
+    padding: 30px;
+    visibility: hidden;
+}
+.memory{
+    padding: 20px;
+}
+.mem{
+    visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .outline{
     background-color: rgb(70, 68, 68);
     height: 89vmin;

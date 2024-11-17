@@ -10,11 +10,23 @@ let togglBtn=document.querySelector("#toggle");
 let trigBtn=document.querySelectorAll(".trig");
 let bracket=document.querySelector("#bracket");
 let factBtn=document.querySelector("#fact");
+let mR=document.querySelector("#MR");
+let mp=document.querySelector("#MP");
+let mc=document.querySelector("#MC");
+let mm=document.querySelector("#MM");
+let m=document.querySelector("#M");
+let ms=document.querySelector("#MS");
+let box1=document.querySelector(".history");
+let box2=document.querySelector(".memory");
+
+
 
 let curr='';
 let prev='';
 let operator=null;
 let functionName='';
+let memValue=0;
+let isOpen=false;
 
 
 const handleNum=(number)=>{
@@ -65,9 +77,44 @@ const handleNegative=()=>{
     display();
 
 };
-const memory=(mem)=>{
-    
+const mAdd=()=>{
+    if(curr!==''){
+        memValue += parseFloat(curr);
+    }else if(curr === '' && operator !== null){
+        memValue+=parseFloat(prev); 
+    }
 };
+const mDel=()=>{
+    if(curr !== ''){
+        memValue -= parseFloat(curr);
+        display();
+    }else if(curr === '' && operator !== null){
+        memValue-=parseFloat(prev);  
+    }
+};
+const mClear=()=>{
+    memValue=0;
+    display();
+};
+const mRecall=()=>{
+    if(curr !== ''||curr === '0'){
+        curr=memValue.toString();
+        display();
+    }else if(curr === ''){
+        curr+=memValue.toString();
+        display();
+    }
+};
+const mStore=()=>{
+    if(curr !== ''){
+        memValue = parseFloat(curr);
+    }
+
+};
+const history=()=>{
+    box2.innerText = memValue.toString();
+};
+
 const calculate=()=>{
     let result;
     let prevNum=parseFloat(prev);
@@ -254,7 +301,10 @@ const handleBracket=()=>{
 
     }
     display();
-}
+};
+const parenthesis=()=>{
+
+};
 
 
 
@@ -288,7 +338,7 @@ screen.addEventListener("mouseover",()=>{
 numBtn.forEach((btn)=>{
     btn.addEventListener("click",()=>{
         handleNum(btn.innerText);
-        console.log(`curr is ${curr}`)
+       
        
     });
 })
@@ -316,5 +366,38 @@ togglBtn.addEventListener("click",()=>{
 });
 
 bracket.addEventListener("click",handleBracket);
+mR.addEventListener("click",()=>{
+    mRecall();
+    console.log(`memory recalled: ${memValue}`);
+    console.log(`curr is ${curr}`)
+});
+mp.addEventListener("click",()=>{
+    mAdd();
+    console.log(`memory added: ${memValue}`);
+    history();
+});
+mm.addEventListener("click",()=>{
+    mDel();
+    console.log(`memory subtracted: ${memValue}`);
+    history();
+});
+mc.addEventListener("click",()=>{
+    mClear();
+    console.log(`memory cleared: ${memValue}`);
+    history();
+});
+m.addEventListener("click",()=>{
+    if(!isOpen){
+    box1.classList.add("mem");
+    isOpen=true;
+    }else{
+        box1.classList.remove("mem");
+        isOpen=false;
+    }
+});
+
+
+
+
 
 
