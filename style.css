@@ -31,17 +31,19 @@ body{
     background-color: bisque;
 }
 #spl{
-    background-color: aqua;
+    background-color: teal;
 }
 .history{
     height: 60vmin;
     width: 40vmin;
     margin-left: 5px;
-    background-color: black;
+    background-color: #2c2c2c;
     color: antiquewhite;
     font-size: 20px;
     padding: 30px;
     visibility: hidden;
+    position: fixed;
+    left: 70%;
 }
 .memory{
     padding: 20px;
@@ -51,27 +53,17 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 .outline{
-    background-color: rgb(70, 68, 68);
+    background-color: black;
     height: 89vmin;
     width: 54vmin;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
 }
 .inner{
-    background-color: rgb(161, 158, 158);
+    background-color:#2C2C2C;
     height: 96%;
     width: 96%;
     display: flex;
@@ -87,11 +79,12 @@ body{
     height: 15vmin;
     width: 95%;
     margin: 1vmin;
-    text-align: center;
+    padding: 8px;
     font-size: 2rem;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-end;
+   
 
 }
 .keypad{
@@ -107,6 +100,8 @@ body{
     gap: 0.1rem;
 }
 .button{
+    background-color: #404040;
+    color: #00BFFF;
     height: 8vmin;
     width: 12vmin;
     border-radius: 1vmin;
@@ -123,8 +118,10 @@ body{
     align-items: center;
 }
 .bar_btn{
+    background-color: #404040;
+    color: #FF00FF;
     font-size: 1rem;
-    font-weight: bold;
+    /* font-weight: 20px; */
     border-radius: 1vmin;
     border-width: 1px;
     width: 8vmin;

@@ -49,6 +49,8 @@ const handleNum=(number)=>{
 const handleOperator=(op)=>{
     if(curr===''){
         return;
+    }else if(prev!==''){
+        calculate();
     }
     operator=op;
     prev=curr;
@@ -122,11 +124,11 @@ const calculate=()=>{
 
     if(functionName){
         result=trigCalc(functionName);
+        return;
     }
     
     if(operator ==='!'){
         result=factorial(prevNum);
-        
     }
   
     switch(operator){
@@ -188,6 +190,8 @@ const clear=()=>{
     display();
 };
 const display = () => {
+    console.log(`curr is ${curr} and prev is ${prev}`);
+    console.log(curr);
     if (curr !== '') {
         if(prev!==''&& operator!==null){
             screen.innerText=prev+' '+ operator + ' '+curr;
@@ -354,7 +358,7 @@ trigBtn.forEach((btn)=>{
 })
 equal.addEventListener("click",()=>{
     calculate();
-    display();
+    // display();
 });
 clearBtn.addEventListener("click",clear);
 delBtn.addEventListener("click",()=>{
