@@ -29,7 +29,7 @@
 <li>Clone this repository to your local system using git.</li>
 <li>Navigate to the project directory.</li>
 <li>Open index.html in your web browser.</li>
-<li>or <a href="http://127.0.0.1:5500/Calculator/index.html">Click Here</a>
+<li>or <a href="[http://127.0.0.1:5500/Calculator/index.html](https://amina0426.github.io/web_calc/)">Click Here</a>
 
 
 
