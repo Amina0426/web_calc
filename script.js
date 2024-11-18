@@ -18,8 +18,7 @@ let m=document.querySelector("#M");
 let ms=document.querySelector("#MS");
 let box1=document.querySelector(".history");
 let box2=document.querySelector(".memory");
-
-
+let okBtn=document.querySelector("#ok");
 
 let curr='';
 let prev='';
@@ -27,6 +26,10 @@ let operator=null;
 let functionName='';
 let memValue=0;
 let isOpen=false;
+
+/**what's left?
+ * parenthesis
+ */
 
 
 const handleNum=(number)=>{
@@ -108,15 +111,18 @@ const mRecall=()=>{
     }
 };
 const mStore=()=>{
+    let store=document.createElement("div");
+    box2.prepend(store);
     if(curr !== ''){
         memValue = parseFloat(curr);
+    }else if(curr === '' && operator !== null){
+        memValue = parseFloat(prev); 
     }
-
+    store.innerText=memValue.toString();
 };
 const history=()=>{
     box2.innerText = memValue.toString();
 };
-
 const calculate=()=>{
     let result;
     let prevNum=parseFloat(prev);
@@ -172,8 +178,6 @@ const calculate=()=>{
     functionName='';
     display();
 };
-
-
 const factorial=(n)=>{
     if(n===0||n===1){
         return 1;
@@ -316,6 +320,7 @@ const parenthesis=()=>{
 
 
 
+//calling section
 
 buttons.forEach((btn)=>{
     btn.addEventListener("mouseover",()=>{
@@ -358,7 +363,6 @@ trigBtn.forEach((btn)=>{
 })
 equal.addEventListener("click",()=>{
     calculate();
-    // display();
 });
 clearBtn.addEventListener("click",clear);
 delBtn.addEventListener("click",()=>{
@@ -398,6 +402,11 @@ m.addEventListener("click",()=>{
         box1.classList.remove("mem");
         isOpen=false;
     }
+});
+ms.addEventListener("click",mStore);
+okBtn.addEventListener("click",()=>{
+    document.querySelector(".intro").style.display="none";
+
 });
 
 

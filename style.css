@@ -33,6 +33,25 @@ body{
 #spl{
     background-color: teal;
 }
+.intro{
+    height: 45vmin;
+    width: 30vmin;
+    color: #FF00FF;
+    background-color:#2C2C2C ;
+    position: fixed;
+    left: 8%;
+    font-size: 3vmin;
+    line-height: 1.5;
+
+}
+#ok{
+    height: 5vmin;
+    width: 9vmin;
+    background-color: #FF00FF;
+    color: #2C2C2C;
+    font-weight: bold;
+    margin-top: 2rem;
+}
 .history{
     height: 60vmin;
     width: 40vmin;
