@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #b7c9a5;
+    background-color:#a7d8d2;
     text-align: center;
 }
 .onhover{
@@ -23,7 +23,8 @@ body{
     width: 100vw;
 }
 .header{
-    background-color: #d6a17a;
+    background-color: #2C2C2C;
+    color: #FF00FF;
     height: 6vmin;
     width: 100vw;
 }
