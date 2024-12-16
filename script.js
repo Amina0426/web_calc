@@ -9,7 +9,7 @@ let delBtn=document.querySelector(".del");
 let togglBtn=document.querySelector("#toggle");
 let trigBtn=document.querySelectorAll(".trig");
 let bracket=document.querySelector("#bracket");
-let factBtn=document.querySelector("#fact");
+let factBtn=document.querySelector("#fact"); 
 let mR=document.querySelector("#MR");
 let mp=document.querySelector("#MP");
 let mc=document.querySelector("#MC");
@@ -19,6 +19,9 @@ let ms=document.querySelector("#MS");
 let box1=document.querySelector(".history");
 let box2=document.querySelector(".memory");
 let okBtn=document.querySelector("#ok");
+let cross=document.querySelector("#wrong");
+let intro=document.querySelector(".intro");
+
 
 let curr='';
 let prev='';
@@ -30,6 +33,20 @@ let isOpen=false;
 /**what's left?
  * parenthesis
  */
+document.addEventListener("DOMContentLoaded",()=>{
+    let overlay=document.createElement("div");
+    overlay.classList.add("overlay");
+    document.querySelector("body").appendChild(overlay);
+    intro.classList.add("mem");
+    overlay.style.display="block";
+    
+    okBtn.addEventListener("click",()=>{
+        intro.classList.remove("mem");
+       overlay.style.display="none";
+    });
+    
+});
+
 
 
 const handleNum=(number)=>{
@@ -404,10 +421,13 @@ m.addEventListener("click",()=>{
     }
 });
 ms.addEventListener("click",mStore);
-okBtn.addEventListener("click",()=>{
-    document.querySelector(".intro").style.display="none";
 
-});
+cross.addEventListener("click",()=>{
+    if(isOpen){
+        box1.classList.remove("mem");
+        isOpen=false;
+    }
+})
 
 
 
