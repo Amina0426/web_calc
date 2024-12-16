@@ -5,7 +5,7 @@
 }
 body{
     background-color:#a7d8d2;
-    text-align: center;
+    text-align: center; 
     font-size: 1.2vw;
 }
 #wrong{
@@ -154,7 +154,7 @@ p{
     height: 8vmin;
     width: 12vmin;
     border-radius: 1vmin;
-    border-width: 1px;
+    border-width: 0.1vmin;
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -172,7 +172,104 @@ p{
     font-size: 1rem;
     /* font-weight: 20px; */
     border-radius: 1vmin;
-    border-width: 1px;
+    border-width: 0.1vmin;
     width: 8vmin;
     height: 3.5vmin;
+}
+
+
+@media (max-width: 920px) {
+    body {
+        font-size: 3vw;
+    }
+
+    .header {
+        font-size: 3vmin;
+        height: 8vmin;
+    }
+    .intro {
+        height: auto;
+        width: 80%;
+        left: 10%;
+        font-size: 4vmin;
+    }
+
+    .outline {
+        height: 90vh;
+        width: 90vw;
+    }
+
+    .inner {
+        width: 95%;
+        padding: 1vmin;
+    }
+    .display {
+        height: 20vmin;
+        font-size: 3rem;
+    }
+
+    .keypad {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+
+    .button {
+        height: 10vmin;
+        width: 16vmin;
+        font-size: 2rem;
+        margin-left: 0.8rem;
+    }
+    .bar_btn{
+        height: 5vmin;
+        width: 11.5vmin;
+        font-size: 1.5rem;
+    }
+    #wrong {
+        font-size: 2vmin;
+        height: 5%;
+        width: 9%;
+    }
+
+    .history {
+        font-size: 4vmin;
+        width: 93%;
+        height: 55%;
+        bottom: 4%;
+    }
+}
+@media (max-width: 480px) {
+    body {
+        font-size: 4vw;
+    }
+
+    .keypad {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .button {
+        font-size: 1rem;
+        height: 12vmin;
+        width: 18vmin;
+        margin-left: 0;
+    }
+
+    .display {
+        font-size: 2.5rem;
+    }
+
+    .bar_btn {
+        font-size: 0.9rem;
+        width: 12vmin;
+        height: 6vmin;
+    }
+
+    .inner {
+        width: 95%;
+        padding: 1vmin;
+    }
+}
+@media(min-height: 701px) and (max-height: 1000px){
+    .outline{
+        height: 80vh;
+    }
 }
