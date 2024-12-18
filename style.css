@@ -177,15 +177,39 @@ p{
     height: 3.5vmin;
 }
 
+@media(min-width: 920px){
+    body{
+        font-size: 3vw;
+    }
+    .header{
+        font-size: 3vmin;
+        height: 7vmin;
+    }
+    .button {
+        height: 7vmin;
+        width: 11vmin;
+        font-size: 1.5rem;
+        margin-left: 0.8rem;
+    }
+    .bar_btn{
+        height: 3.5vmin;
+        width: 8vmin;
+        font-size: 1rem;
+    }
+    .keypad{
+        height: 43vh;
+        width: 95%;
+    }
 
+}
 @media (max-width: 920px) {
     body {
-        font-size: 3vw;
+        font-size: 2vw;
     }
 
     .header {
         font-size: 3vmin;
-        height: 8vmin;
+        height: 7vmin;
     }
     .intro {
         height: auto;
@@ -195,8 +219,8 @@ p{
     }
 
     .outline {
-        height: 90vh;
-        width: 90vw;
+        height: 98vh;
+        width: 85vw;
     }
 
     .inner {
@@ -204,7 +228,7 @@ p{
         padding: 1vmin;
     }
     .display {
-        height: 20vmin;
+        height: 15vmin;
         font-size: 3rem;
     }
 
@@ -214,9 +238,9 @@ p{
     }
 
     .button {
-        height: 10vmin;
-        width: 16vmin;
-        font-size: 2rem;
+        height: 9vmin;
+        width: 15vmin;
+        font-size: 1.5rem;
         margin-left: 0.8rem;
     }
     .bar_btn{
