@@ -125,9 +125,9 @@ p{
 .display{
     background-color: black;
     color: white;
-    height: 15vmin;
+    height: 15%;
     width: 95%;
-    margin: 1vmin;
+    margin: 1%;
     padding: 8px;
     font-size: 2rem;
     display: flex;
@@ -137,7 +137,7 @@ p{
 
 }
 .keypad{
-    height: 49vh;
+    height: 60%;
     width: 95%;
     /* display: flex;
     flex-wrap: wrap;
@@ -151,15 +151,15 @@ p{
 .button{
     background-color: #404040;
     color: #00BFFF;
-    height: 8vmin;
-    width: 12vmin;
+    height: 100%;
+    width: 98%;
     border-radius: 1vmin;
     border-width: 0.1vmin;
     font-size: 1.5rem;
     font-weight: bold;
 }
 .bar{
-    height: 4vmin;
+    height: 5%;
     width: 95%;
     display: flex;
     flex-direction: row;
@@ -177,7 +177,7 @@ p{
     height: 3.5vmin;
 }
 
-@media(min-width: 920px){
+/* @media(min-width: 920px){
     body{
         font-size: 3vw;
     }
@@ -201,7 +201,7 @@ p{
         width: 95%;
     }
 
-}
+} */
 @media (max-width: 920px) {
     body {
         font-size: 2vw;
