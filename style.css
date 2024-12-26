@@ -208,8 +208,8 @@ p{
     }
 
     .header {
-        font-size: 3vmin;
-        height: 7vmin;
+        font-size: 1.5rem;
+        height: 6vh;
     }
     .intro {
         height: auto;
@@ -219,7 +219,7 @@ p{
     }
 
     .outline {
-        height: 98vh;
+        height: 85vh;
         width: 85vw;
     }
 
@@ -228,7 +228,7 @@ p{
         padding: 1vmin;
     }
     .display {
-        height: 15vmin;
+        height: 15%;
         font-size: 3rem;
     }
 
@@ -238,8 +238,8 @@ p{
     }
 
     .button {
-        height: 9vmin;
-        width: 15vmin;
+        height: 100%;
+        width: 16vmin;
         font-size: 1.5rem;
         margin-left: 0.8rem;
     }
@@ -264,6 +264,9 @@ p{
 @media (max-width: 480px) {
     body {
         font-size: 4vw;
+    }
+    .outline{
+        height: 80vh;
     }
 
     .keypad {
